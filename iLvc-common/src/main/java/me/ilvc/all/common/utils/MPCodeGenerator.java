@@ -46,7 +46,7 @@ public class MPCodeGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/db_lvcblog?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC");
+        dsc.setUrl("jdbc:mysql://localhost:3306/jxzsb_club?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
@@ -99,7 +99,7 @@ public class MPCodeGenerator {
                 //projectPath +"/"+ pc.getModuleName()+"/src/main/
 
                 return projectPath +"/"+ pc.getModuleName()+ "/src/main/resources/mapper/"
-                        + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+                        + "/" +pc.getModuleName().replace("iLvc-","")+"/"+ tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
         /*
