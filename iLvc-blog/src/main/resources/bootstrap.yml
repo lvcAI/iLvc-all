@@ -1,0 +1,12 @@
+spring:
+  #  application:
+  #    name: ms-ilvc-eureka-user-hystrix # 指定应用名称
+#  profiles:
+#    active: prod
+  cloud:
+    config:
+      name: iLvc-blog
+      profile: pro
+      uri: http://localhost:8889/
+      fail-fast: true
+      enabled: true

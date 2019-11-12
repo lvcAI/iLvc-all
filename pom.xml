@@ -16,6 +16,7 @@
         <module>iLvc-spider</module>
         <module>iLvc-ServerRegistryCenter</module>
         <module>iLvc-configCenter</module>
+        <module>iLvc-common</module>
     </modules>
 
 
@@ -37,6 +38,7 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
     </dependencies>
 
     <!-- 引入Spring Cloud的依赖，管理Spring Cloud生态各个组件 -->
