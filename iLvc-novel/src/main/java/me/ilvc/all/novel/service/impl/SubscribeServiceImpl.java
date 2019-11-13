@@ -1,6 +1,6 @@
 package me.ilvc.all.novel.service.impl;
 
-import me.ilvc.all.novel.entity.Subscribe;
+import me.ilvc.all.common.model.novel.Subscribe;
 import me.ilvc.all.novel.mapper.SubscribeMapper;
 import me.ilvc.all.novel.service.ISubscribeService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

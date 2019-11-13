@@ -1,6 +1,6 @@
 package me.ilvc.all.novel.service;
 
-import me.ilvc.all.novel.entity.Subscribe;
+import me.ilvc.all.common.model.novel.Subscribe;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

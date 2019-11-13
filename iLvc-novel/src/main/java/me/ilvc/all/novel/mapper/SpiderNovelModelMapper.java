@@ -1,6 +1,6 @@
 package me.ilvc.all.novel.mapper;
 
-import me.ilvc.all.novel.entity.SpiderNovelModel;
+import me.ilvc.all.common.model.novel.SpiderNovelModel;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

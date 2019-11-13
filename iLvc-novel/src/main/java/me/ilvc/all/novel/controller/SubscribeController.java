@@ -1,9 +1,13 @@
 package me.ilvc.all.novel.controller;
 
 
+import lombok.extern.slf4j.Slf4j;
 import me.ilvc.all.common.model.Result;
+import me.ilvc.all.common.model.novel.NovelInfo;
+import me.ilvc.all.common.model.novel.Subscribe;
 import me.ilvc.all.common.model.novel.User;
 import me.ilvc.all.novel.feign.NovelUserFeignClient;
+import me.ilvc.all.novel.service.INovelInfoService;
 import me.ilvc.all.novel.service.ISubscribeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,7 +30,9 @@ import java.util.Map;
  * @author iLvc
  * @since 2019-11-12
  */
+@Slf4j
 @RestController
+//@RequestMapping("/iLvc-novel")
 public class SubscribeController {
 
 
@@ -34,27 +40,51 @@ public class SubscribeController {
     private ISubscribeService subscribeService;
 
     @Autowired
+    private INovelInfoService novelInfoService;
+
+    @Autowired
     private NovelUserFeignClient novelUserFeignClient;
 
 
     @PostMapping(value = {"/subscriptions"})
     public Result subscriptions(HttpServletRequest request, HttpServletResponse response) {
-
+        // 最终返回 结果
+        Result result = new Result();
+        Subscribe subscribe;
         System.out.println("URL:" + request.getRequestURL());
         // 天呐 ，获取参数的的方法都忘了，还是以为是属性
         String novelid = request.getParameter("novelid").toString();
         String email = request.getParameter("email").toString();
-
-        System.out.println(request.getRequestURL() + " email: " + email + " novelid: " + novelid);
+        log.info("请求URL：{} email：{} novelid:{}",request.getRequestURL(),email,novelid);
         // 查询用户
         Result<User> novel_user_result=novelUserFeignClient.getUserByEmail(email);
-        System.out.println(novel_user_result);
-        Result result = new Result();
-        Map<Object, Object> map = new HashMap<>();
-        map.put("novelid", novelid);
-        map.put("email", email);
-        result.setData(novel_user_result.getData());
-        result.setExtra(map);
+//        System.out.println(novel_user_result);
+        // 查询 novelid 是否存在
+        NovelInfo novelInfo = novelInfoService.getById(novelid);
+        if (novelInfo == null) {
+            result.setCode(404);
+            result.setMsg("novelid:" + novelid + "不存在！");
+            return result;
+        } else {
+                    subscribe = Subscribe.builder()
+                    .novelId(Integer.valueOf(novelid))
+                    .uid(novel_user_result.getData().getUid())
+                    .build();
+//            subscribe.setUid(novel_user_result.getData().getUid());
+            subscribeService.save(subscribe);
+
+        }
+//        Map<Object, Object> map = new HashMap<>();
+//        map.put("novelid", novelid);
+//        map.put("email", email);
+        if (subscribe == null) {
+            result.setCode(404);
+            result.setMsg("novelid:" + novelid + "不存在！");
+        } else {
+            result.setData(subscribe);
+        }
+        log.info("最终结果：{}",result);
+//        result.setExtra(map);
         return result;
     }
 }

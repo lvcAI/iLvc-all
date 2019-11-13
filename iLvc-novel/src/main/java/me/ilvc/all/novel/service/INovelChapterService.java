@@ -1,6 +1,6 @@
 package me.ilvc.all.novel.service;
 
-import me.ilvc.all.novel.entity.NovelChapter;
+import me.ilvc.all.common.model.novel.NovelChapter;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

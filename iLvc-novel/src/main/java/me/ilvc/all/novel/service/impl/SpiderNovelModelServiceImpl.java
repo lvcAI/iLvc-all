@@ -1,6 +1,6 @@
 package me.ilvc.all.novel.service.impl;
 
-import me.ilvc.all.novel.entity.SpiderNovelModel;
+import me.ilvc.all.common.model.novel.SpiderNovelModel;
 import me.ilvc.all.novel.mapper.SpiderNovelModelMapper;
 import me.ilvc.all.novel.service.ISpiderNovelModelService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

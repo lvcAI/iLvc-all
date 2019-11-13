@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 @FeignClient("iLvc-user") // 指定访问模块
 public interface NovelUserFeignClient {
 
-    @GetMapping(path = {"/iLvc-user/users"})
+    @GetMapping(path = {"/users"})
     Result getUserByEmail(@RequestParam String email);
 
 }

@@ -1,4 +1,4 @@
-package me.ilvc.all.novel.entity;
+package me.ilvc.all.common.model.novel;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -19,24 +19,18 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class SpiderNovelModel implements Serializable {
+public class NovelInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "sm_id", type = IdType.AUTO)
-    private Integer smId;
+    @TableId(value = "novel_id", type = IdType.AUTO)
+    private Integer novelId;
 
-    private String smSiteName;
+    private String novelName;
 
-    private String smSiteDomain;
+    private String novelCode;
 
     private String novelUrl;
-
-    private String smNovelUrlRex;
-
-    private String smNovelUrlRegxRange;
-
-    private String novelNamme;
 
     private String novelAuthor;
 
@@ -52,21 +46,15 @@ public class SpiderNovelModel implements Serializable {
 
     private String newUpdateChapterTime;
 
+    private String newUpdateChapterTimeOld;
+
     private String newUpdateChapterUrl;
 
-    private String chapterName;
+    private LocalDateTime fisrtAddTime;
 
-    private String chapterNovelName;
+    private Integer smId;
 
-    private String chapterContent;
-
-    private String chapterUrl;
-
-    private String preChapterUrl;
-
-    private String nextChpterUrl;
-
-    private LocalDateTime addTime;
+    private Integer weight;
 
 
 }

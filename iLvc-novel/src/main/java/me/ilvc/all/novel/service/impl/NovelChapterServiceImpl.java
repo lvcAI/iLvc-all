@@ -1,6 +1,6 @@
 package me.ilvc.all.novel.service.impl;
 
-import me.ilvc.all.novel.entity.NovelChapter;
+import me.ilvc.all.common.model.novel.NovelChapter;
 import me.ilvc.all.novel.mapper.NovelChapterMapper;
 import me.ilvc.all.novel.service.INovelChapterService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

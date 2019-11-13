@@ -1,4 +1,4 @@
-package me.ilvc.all.novel.entity;
+package me.ilvc.all.common.model.novel;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

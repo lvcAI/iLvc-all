@@ -2,7 +2,7 @@ package me.ilvc.all.novel.controller;
 
 
 import me.ilvc.all.common.model.Result;
-import me.ilvc.all.novel.entity.NovelInfo;
+import me.ilvc.all.common.model.novel.NovelInfo;
 import me.ilvc.all.novel.service.INovelInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
