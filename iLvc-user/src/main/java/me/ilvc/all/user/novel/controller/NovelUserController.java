@@ -6,11 +6,7 @@ import me.ilvc.all.common.model.Result;
 import me.ilvc.all.common.model.novel.User;
 import me.ilvc.all.user.novel.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
@@ -28,7 +24,7 @@ public class NovelUserController {
     private IUserService userService;
 
     @GetMapping(path = {"/users"})
-    public Result getUserByEmail(String email) {
+    public Result getUserByEmail(@RequestParam String email) {
 
 //        String email = request.getParameter("email");
         System.out.println("后台接收的数据："+email);
