@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2019-11-12
  */
 @RestController
-@RequestMapping("/iLvc-novel/novel-chapter")
+@RequestMapping("/novel-chapter")
 public class NovelChapterController {
 
 }

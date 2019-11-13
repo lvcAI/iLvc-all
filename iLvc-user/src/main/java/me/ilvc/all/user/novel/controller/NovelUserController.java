@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
  * @since 2019-11-12
  */
 @RestController
-@RequestMapping("/iLvc-user/")
 public class NovelUserController {
 
     @Autowired

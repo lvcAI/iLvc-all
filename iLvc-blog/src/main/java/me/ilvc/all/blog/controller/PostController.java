@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2019-11-12
  */
 @RestController
-@RequestMapping("/iLvc-blog/t-post")
+@RequestMapping("/t-post")
 public class PostController {
 
 

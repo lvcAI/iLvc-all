@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2019-11-12
  */
 @RestController
-@RequestMapping("/iLvc-novel/spider-novel-model")
+@RequestMapping("/spider-novel-model")
 public class SpiderNovelModelController {
 
 }

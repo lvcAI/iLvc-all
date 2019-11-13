@@ -22,7 +22,7 @@ import java.util.Map;
  * @since 2019-11-12
  */
 @RestController
-@RequestMapping("/iLvc-novel/novel/")
+@RequestMapping("/novel")
 public class NovelInfoController {
 
 
