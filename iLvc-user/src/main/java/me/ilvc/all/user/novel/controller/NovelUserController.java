@@ -27,41 +27,11 @@ public class NovelUserController {
 
 
 
-    @PostMapping(path = {"/users"})
     @GetMapping(path = {"/users"})
     public Result getUserByEmail(@RequestParam String email) {
 
 //        String email = request.getParameter("email");
         System.out.println("后台接收的数据："+email);
-        QueryWrapper<User> wrapper = new QueryWrapper<>();
-        User user = userService.getOne(wrapper.eq("email", email));
-        System.out.println(email);
-        Result<User> result = new Result<>();
-        if (user == null) {
-            result.setCode(400);
-            result.setMsg("没有该用户！");
-            // 创建一个用户
-            User create_user = new User();
-            create_user.setEmail(email);
-            create_user.setUsername(email);
-            create_user.setPassword("lvc123456");
-//            暂时不处理
-//            if (userService.save(user)) {
-//                System.out.println("创建用户成功！");
-//            }
-        } else {
-            result.setCode(200);
-            result.setMsg("查找用户成功！");
-            result.setData(user);
-        }
-        return result;
-    }
-
-    public Result getUserByEmailByPost(String email) {
-
-//        String email = request.getParameter("email");
-        System.out.println("后台接收的数据："+email);
-
         QueryWrapper<User> wrapper = new QueryWrapper<>();
         User user = userService.getOne(wrapper.eq("email", email));
         System.out.println(email);

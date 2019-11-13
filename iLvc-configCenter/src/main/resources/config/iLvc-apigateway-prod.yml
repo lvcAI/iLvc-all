@@ -15,12 +15,12 @@ zuul:
       path: /iLvc-blog/**	# 路由路径
       service-id: iLvc-blog # 指定 路由的服务
     user-serviceId:
-      paht: /iLvc-user/**
+      path: /iLvc-user/**
       service-id: iLvc-user
     novel-serviceId:
-      paht: /iLvc-novel/**
+      path: /iLvc-novel/**
       service-id: iLvc-novel
     club-serviceId:
-      paht: /iLvc-club/**
+      path: /iLvc-club/**
       service-id: iLvc-club
 
