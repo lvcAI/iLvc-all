@@ -1,7 +1,7 @@
 package me.ilvc.all.user.novel.service;
 
-import me.ilvc.all.user.novel.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import me.ilvc.all.common.model.novel.User;
 
 /**
  * <p>

@@ -1,7 +1,7 @@
 package me.ilvc.all.user.novel.mapper;
 
-import me.ilvc.all.user.novel.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import me.ilvc.all.common.model.novel.User;
 import org.springframework.stereotype.Repository;
 
 /**

@@ -1,7 +1,7 @@
 package me.ilvc.all.user.novel.service.impl;
 
 import com.baomidou.dynamic.datasource.annotation.DS;
-import me.ilvc.all.user.novel.entity.User;
+import me.ilvc.all.common.model.novel.User;
 import me.ilvc.all.user.novel.mapper.NovelUserMapper;
 import me.ilvc.all.user.novel.service.IUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
