@@ -17,6 +17,7 @@
         <module>iLvc-ServerRegistryCenter</module>
         <module>iLvc-configCenter</module>
         <module>iLvc-common</module>
+        <module>iLvc-APIGateway</module>
     </modules>
 
 
@@ -44,6 +45,11 @@
             <optional>true</optional>
         </dependency>
 
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.0.5</version>
+        </dependency>
     </dependencies>
 
     <!-- 引入Spring Cloud的依赖，管理Spring Cloud生态各个组件 -->

@@ -1,6 +1,8 @@
 package me.ilvc.all.user.novel.controller;
 
 
+import cn.hutool.log.Log;
+import cn.hutool.log.LogFactory;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import me.ilvc.all.common.model.Result;
 import me.ilvc.all.common.model.novel.User;
@@ -21,9 +23,41 @@ public class NovelUserController {
 
     @Autowired
     private IUserService userService;
+    Log log = LogFactory.get();
 
+
+
+    @PostMapping(path = {"/users"})
     @GetMapping(path = {"/users"})
     public Result getUserByEmail(@RequestParam String email) {
+
+//        String email = request.getParameter("email");
+        System.out.println("后台接收的数据："+email);
+        QueryWrapper<User> wrapper = new QueryWrapper<>();
+        User user = userService.getOne(wrapper.eq("email", email));
+        System.out.println(email);
+        Result<User> result = new Result<>();
+        if (user == null) {
+            result.setCode(400);
+            result.setMsg("没有该用户！");
+            // 创建一个用户
+            User create_user = new User();
+            create_user.setEmail(email);
+            create_user.setUsername(email);
+            create_user.setPassword("lvc123456");
+//            暂时不处理
+//            if (userService.save(user)) {
+//                System.out.println("创建用户成功！");
+//            }
+        } else {
+            result.setCode(200);
+            result.setMsg("查找用户成功！");
+            result.setData(user);
+        }
+        return result;
+    }
+
+    public Result getUserByEmailByPost(String email) {
 
 //        String email = request.getParameter("email");
         System.out.println("后台接收的数据："+email);
@@ -59,6 +93,7 @@ public class NovelUserController {
 
         return userResult;
     }
+
 
 
 }

@@ -1,0 +1,26 @@
+server:
+  port: 8888
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: ilvc-apigateway
+zuul:
+  routes: # 配置路由
+    blog-serviceId: # 唯一标识一个服务id
+      path: /iLvc-blog/**	# 路由路径
+      service-id: iLvc-blog # 指定 路由的服务
+    user-serviceId:
+      paht: /iLvc-user/**
+      service-id: iLvc-user
+    novel-serviceId:
+      paht: /iLvc-novel/**
+      service-id: iLvc-novel
+    club-serviceId:
+      paht: /iLvc-club/**
+      service-id: iLvc-club
+
