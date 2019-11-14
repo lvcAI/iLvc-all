@@ -33,12 +33,9 @@ public class NovelInfoController {
 
     @RequestMapping(path = {"/{id}","/{id}/"})
     public Result<NovelInfo> getById(@PathVariable("id")Integer id){
-        Result<NovelInfo> result = new Result<>();
+        Result<NovelInfo> result = Result.okWithMsg("成功！");
         result.setCode(200);
-        result.setMsg("成功！");
         result.setData(novelInfoService.getById(id));
-        Map<Object, Object> extra = new HashMap<>();
-        extra.put("type", "测试");
         return result;
     }
 

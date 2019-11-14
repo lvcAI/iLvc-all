@@ -47,7 +47,7 @@ public class SubscribeServiceImpl extends ServiceImpl<SubscribeMapper, Subscribe
      */
     public Result<Subscribe> addSubcriber(int novelId, String email) {
         log.info("{} running in {}  start ....", getClass().getName(), "addSubcriber()");
-        Result<Subscribe> result = new Result<>();
+        Result<Subscribe> result = Result.ok();
         Subscribe subscribe = null;
         NovelInfo novelInfo = null;
         User user = null;

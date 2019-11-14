@@ -35,7 +35,7 @@ public class NovelUserController {
         QueryWrapper<User> wrapper = new QueryWrapper<>();
         User user = userService.getOne(wrapper.eq("email", email));
         System.out.println(email);
-        Result<User> result = new Result<>();
+        Result<User> result = Result.ok();
         if (user == null) {
             // 创建一个用户
             User create_user = new User();
@@ -64,7 +64,7 @@ public class NovelUserController {
 
     @PostMapping("/users/")
     public Result createUser() {
-        Result<User> userResult = new Result<>();
+        Result<User> userResult = Result.ok();
 
         return userResult;
     }
