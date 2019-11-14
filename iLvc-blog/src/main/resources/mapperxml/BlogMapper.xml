@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="me.ilvc.all.blog.mapper.BlogMapper">
+    <resultMap id="BaseResultMap" type="me.ilvc.all.blog.model.Blog">
+        <!--@mbg.generated-->
+        <!--@Table t_blog-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="content" jdbcType="LONGVARCHAR" property="content"/>
+        <result column="views" jdbcType="INTEGER" property="views"/>
+        <result column="likes" jdbcType="INTEGER" property="likes"/>
+        <result column="tag_ids" jdbcType="VARCHAR" property="tagIds"/>
+        <result column="status" jdbcType="TINYINT" property="status"/>
+        <result column="is_original" jdbcType="TINYINT" property="isOriginal"/>
+        <result column="category_id" jdbcType="INTEGER" property="categoryId"/>
+        <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, title, content, views, likes, tag_ids, `status`, is_original, category_id, user_id,
+        create_time, update_time
+    </sql>
+</mapper>
