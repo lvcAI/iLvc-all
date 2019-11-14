@@ -33,5 +33,3 @@ mybatis:
 #  type-aliases-package: me.ilvc.all.novel.entity
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
-
