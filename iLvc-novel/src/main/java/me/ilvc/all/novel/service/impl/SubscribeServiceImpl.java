@@ -17,4 +17,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SubscribeServiceImpl extends ServiceImpl<SubscribeMapper, Subscribe> implements ISubscribeService {
 
+
+
+
 }

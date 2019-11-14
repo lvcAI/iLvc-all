@@ -29,7 +29,7 @@ public class NovelUserController {
 
 
     @GetMapping(path = {"/users"})
-    public Result getUserByEmail(@RequestParam String email) {
+    public Result<User> getUserByEmail(@RequestParam String email) {
     log.info("email:{}",email);
 //        String email = request.getParameter("email");
         QueryWrapper<User> wrapper = new QueryWrapper<>();
@@ -43,7 +43,7 @@ public class NovelUserController {
             create_user.setUsername(email);
             create_user.setPassword("lvc123456");
             // 暂时不处理
-            if (userService.save(user)) {
+            if (userService.save(create_user)) {
                 System.out.println("创建用户成功！");
                 log.info("创建用户 {} 成功！",email);
                 user = userService.getOne(wrapper.eq(email, email));

@@ -1,6 +1,7 @@
 package me.ilvc.all.novel.feign;
 
 import me.ilvc.all.common.model.Result;
+import me.ilvc.all.common.model.novel.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +22,6 @@ import javax.servlet.http.HttpServletRequest;
 public interface NovelUserFeignClient {
 
     @GetMapping(path = {"/users"})
-    Result getUserByEmail(@RequestParam String email);
+    Result<User> getUserByEmail(@RequestParam String email);
 
 }

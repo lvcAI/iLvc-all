@@ -2,6 +2,7 @@ package me.ilvc.all.common.model;
 
 import lombok.Data;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -9,11 +10,11 @@ import java.util.Map;
  * @create 2019/11/12 22:01
  */
 @Data
-public class Result<T> {
+public class Results<T> {
 
     private int code;
     private String msg;
-    private T data;
+    private List<T> data;
     private Map<Object, Object> extra;
 
 
