@@ -2,6 +2,7 @@ package me.ilvc.all.novel.mapper;
 
 import me.ilvc.all.common.model.novel.Subscribe;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.springframework.stereotype.Repository;
 
 /**
  * <p>
@@ -11,6 +12,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author iLvc
  * @since 2019-11-12
  */
+@Repository
 public interface SubscribeMapper extends BaseMapper<Subscribe> {
 
 }

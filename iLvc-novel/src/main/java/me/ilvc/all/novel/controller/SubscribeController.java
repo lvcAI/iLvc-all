@@ -1,6 +1,9 @@
 package me.ilvc.all.novel.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import me.ilvc.all.common.model.Result;
 import me.ilvc.all.common.model.Results;
@@ -23,7 +26,7 @@ import java.util.Map;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author iLvc
@@ -47,51 +50,13 @@ public class SubscribeController {
 
     @PostMapping(value = {"/subscriptions"})
     public Result subscriptions(@RequestParam int novelid, @RequestParam String email, HttpServletRequest request, HttpServletResponse response) {
-        // 最终返回 结果
-        Result result = new Result();
-        Subscribe subscribe;
-        System.out.println("URL:" + request.getRequestURL());
-        // 天呐 ，获取参数的的方法都忘了，还是以为是属性
-//        String novelid = request.getParameter("novelid").toString();
-//        String email = request.getParameter("email").toString();
-        log.info("请求URL：{} email：{} novelid:{}",request.getRequestURL(),email,novelid);
-        // 查询用户
-        Result<User> novel_user_result=novelUserFeignClient.getUserByEmail(email);
-        log.info(" 打印 novel_user_result ：{}",novel_user_result);
-//        System.out.println(novel_user_result);
-        // 查询 novelid 是否存在
-        NovelInfo novelInfo = novelInfoService.getById(novelid);
-        if (novelInfo == null) {
-            result.setCode(404);
-            result.setMsg("novelid:" + novelid + "不存在！");
-            return result;
-        } else {
-                    subscribe = Subscribe.builder()
-                    .novelId(Integer.valueOf(novelid))
-                    .uid(novel_user_result.getData().getUid())
-                    .build();
-//            subscribe.setUid(novel_user_result.getData().getUid());
-            subscribeService.save(subscribe);
-
-        }
-//        Map<Object, Object> map = new HashMap<>();
-//        map.put("novelid", novelid);
-//        map.put("email", email);
-        if (subscribe == null) {
-            result.setCode(404);
-            result.setMsg("novelid:" + novelid + "不存在！");
-        } else {
-            result.setData(subscribe);
-        }
-        log.info("最终结果：{}",result);
-//        result.setExtra(map);
-        return result;
+        return subscribeService.addSubcriber(novelid,email);
     }
 
 
     // 获取所有的订阅列表
     @GetMapping(path = "/subscriptions")
-    public Results<Subscribe> getAllSubscriptions(){
+    public Results<Subscribe> getAllSubscriptions() {
 
         Results<Subscribe> results = new Results();
         List<Subscribe> subscribes = subscribeService.list();

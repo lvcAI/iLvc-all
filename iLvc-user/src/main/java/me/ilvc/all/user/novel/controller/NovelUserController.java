@@ -56,6 +56,7 @@ public class NovelUserController {
             result.setMsg("查找用户成功！");
             result.setData(user);
         }
+        log.info("getUserByEmail() result:{}",result);
         return result;
     }
 
