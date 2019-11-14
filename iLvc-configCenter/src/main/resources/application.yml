@@ -21,4 +21,3 @@ spring:
           search-locations: classpath:/config
 #          uri:  https://github.com/lvcAI/ms-ilvc-demo
 #          search-paths: config/
-

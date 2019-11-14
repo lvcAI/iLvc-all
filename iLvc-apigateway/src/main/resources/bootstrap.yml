@@ -1,12 +1,25 @@
+server:
+  port: 8888
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
 spring:
-  #  application:
-  #    name: ms-ilvc-eureka-user-hystrix # 指定应用名称
-#  profiles:
-#    active: prod
-  cloud:
-    config:
-      name: iLvc-apigateway
-      profile: prod
-      uri: http://localhost:8889/
-      fail-fast: true
-      enabled: true
+  application:
+    name: ilvc-apigateway
+zuul:
+  routes: # 配置路由
+    blog-serviceId: # 唯一标识一个服务id
+      path: /iLvc-blog/**    # 路由路径
+      service-id: iLvc-blog # 指定 路由的服务
+    user-serviceId:
+      path: /iLvc-user/**
+      service-id: iLvc-user
+    novel-serviceId:
+      path: /iLvc-novel/**
+      service-id: iLvc-novel
+    club-serviceId:
+      path: /iLvc-club/**
+      service-id: iLvc-club
