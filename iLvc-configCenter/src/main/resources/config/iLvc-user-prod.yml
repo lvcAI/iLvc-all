@@ -17,17 +17,17 @@ spring:
           driver-class-name: com.mysql.cj.jdbc.Driver
           url: jdbc:mysql://localhost:3306/isoyun?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
           username: root
-          password: 123456
+          password: lvc159357
         blog:
           driver-class-name: com.mysql.cj.jdbc.Driver
           url: jdbc:mysql://localhost:3306/db_lvcblog?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
           username: root
-          password: 123456
+          password: lvc159357
         club:
           driver-class-name: com.mysql.cj.jdbc.Driver
           url: jdbc:mysql://localhost:3306/jxzsb_club?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
           username: root
-          password: 123456
+          password: lvc159357
 mybatis:
   mapper-locations: classpath:mapper/**
 #  type-aliases-package: me.ilvc.all.novel.entity

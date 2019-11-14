@@ -14,10 +14,9 @@ spring:
 #    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/db_lvcblog?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
     username: root
-    password: 123456
+    password: lvc159357
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: me.ilvc.all.blog.model
 
-mybatis-plus:
-  global-config:
-    db-config:
-      logic-delete-value: 0 # 逻辑已删除值(默认为 1)
-      logic-not-delete-value: 1 # 逻辑未删除值(默认为 0)
+
