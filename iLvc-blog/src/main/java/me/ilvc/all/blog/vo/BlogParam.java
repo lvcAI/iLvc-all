@@ -8,6 +8,6 @@ public class BlogParam {
     private String title;
     private String content;
     private String tagIds;
-    private String categoryId;
-    private Boolean isOriginal;
+    private Integer categoryId;
+    private Byte isOriginal;
 }

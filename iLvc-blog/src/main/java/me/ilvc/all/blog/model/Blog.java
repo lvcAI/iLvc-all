@@ -1,9 +1,6 @@
 package me.ilvc.all.blog.model;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
 import java.util.Date;
@@ -48,6 +45,7 @@ public class Blog {
      * 状态（0：删除；1：正常；2：草稿；3：锁定）
      */
     @TableField(value = "status")
+    @TableLogic
     private Byte status;
 
     /**

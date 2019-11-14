@@ -19,8 +19,10 @@ public class BlogController {
     private BlogMapper blogMapper;
 
     @PostMapping("/blog")
-    public Result savePost(@RequestParam BlogParam blogParam) {
+    public Result savePost(BlogParam blogParam) {
         Blog blog = new Blog();
+        //todo 添加SpringSecurity 模块，从SecurityHolder获取用户ID
+        blog.setUserId(1);
         BeanUtils.copyProperties(blogParam, blog);
         blogMapper.insert(blog);
         return Result.ok();
@@ -34,8 +36,17 @@ public class BlogController {
 
     @PutMapping("/blog/{blogId}")
     public Result updateBlog(@PathVariable("blogId") Integer blogId, @RequestParam BlogParam blogParam) {
-
+        Blog blog = new Blog();
+        BeanUtils.copyProperties(blogParam, blog);
+        blog.setId(blogId);
+        blogMapper.updateById(blog);
         return Result.ok();
+    }
+
+    @DeleteMapping("/blog/{blogId}")
+    public Result deleteBlog(@PathVariable("blogId") Integer blogId) {
+        blogMapper.deleteById(blogId);
+        return Result.okWithMsg("删除成功");
     }
 
 }
