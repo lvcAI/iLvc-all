@@ -4,11 +4,10 @@ package me.ilvc.all.novel.controller;
 import me.ilvc.all.common.model.Result;
 import me.ilvc.all.common.model.novel.NovelInfo;
 import me.ilvc.all.novel.service.INovelInfoService;
+import me.ilvc.all.novel.vo.NovelInfoParam;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,7 +21,8 @@ import java.util.Map;
  * @since 2019-11-12
  */
 @RestController
-@RequestMapping("/novel")
+@RequestMapping("/novels")
+//@CrossOrigin
 public class NovelInfoController {
 
 
@@ -31,15 +31,15 @@ public class NovelInfoController {
 
 
 
-    @RequestMapping(path = {"/{id}","/{id}/"})
-    public Result<NovelInfo> getById(@PathVariable("id")Integer id){
-        Result<NovelInfo> result = new Result<>();
-        result.setCode(200);
-        result.setMsg("成功！");
-        result.setData(novelInfoService.getById(id));
-        Map<Object, Object> extra = new HashMap<>();
-        extra.put("type", "测试");
-        return result;
+    @GetMapping(path = {"/{id}","/{id}/"})
+    public Result<NovelInfoParam> getById(@PathVariable("id")Integer id){
+        NovelInfoParam novelInfoParam = new NovelInfoParam();
+        BeanUtils.copyProperties(novelInfoService.getById(id),novelInfoParam);
+        return Result.okWithData(novelInfoParam);
     }
 
+    @GetMapping(path = {"/v1/{id}","/{id}/"})
+    public Result<NovelInfo> getById2(@PathVariable("id")Integer id){
+        return Result.okWithData(novelInfoService.getById(id));
+    }
 }

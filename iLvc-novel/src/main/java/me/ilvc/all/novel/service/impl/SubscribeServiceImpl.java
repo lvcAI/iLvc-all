@@ -47,7 +47,7 @@ public class SubscribeServiceImpl extends ServiceImpl<SubscribeMapper, Subscribe
      */
     public Result<Subscribe> addSubcriber(int novelId, String email) {
         log.info("{} running in {}  start ....", getClass().getName(), "addSubcriber()");
-        Result<Subscribe> result = new Result<>();
+        Result<Subscribe> result = Result.ok();
         Subscribe subscribe = null;
         NovelInfo novelInfo = null;
         User user = null;
@@ -70,7 +70,7 @@ public class SubscribeServiceImpl extends ServiceImpl<SubscribeMapper, Subscribe
             // 是否重复订阅
             // 防止重复订阅
 
-            subscribe = subscribeMapper.selectOne(Wrappers.query( Subscribe.builder().build()).eq("novel_id", novelId).eq("uid", email));
+            subscribe = subscribeMapper.selectOne(Wrappers.query( Subscribe.builder().build()).eq("novel_id", novelId).eq("uid", user.getUid()));
             log.info("已存在的订阅 ：{} ",subscribe);
             if (subscribe == null) {
                 subscribe = Subscribe.builder()

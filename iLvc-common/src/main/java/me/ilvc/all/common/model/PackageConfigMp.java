@@ -22,9 +22,9 @@ public class PackageConfigMp extends PackageConfig {
 
     @Override
     public String getParent() {
-        System.out.println(super.getParent());
+//        System.out.println(super.getParent());
         String parent = super.getParent().replace(StringPool.DOT + getModuleName(), "");
-        System.out.println(parent);
+//        System.out.println(parent);
         return parent;
     }
 }
