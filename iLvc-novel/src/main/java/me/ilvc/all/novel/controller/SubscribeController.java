@@ -1,28 +1,20 @@
 package me.ilvc.all.novel.controller;
 
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import me.ilvc.all.common.model.Result;
 import me.ilvc.all.common.model.Results;
-import me.ilvc.all.common.model.novel.NovelInfo;
 import me.ilvc.all.common.model.novel.Subscribe;
-import me.ilvc.all.common.model.novel.User;
 import me.ilvc.all.novel.feign.NovelUserFeignClient;
 import me.ilvc.all.novel.service.INovelInfoService;
 import me.ilvc.all.novel.service.ISubscribeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * <p>
@@ -49,7 +41,7 @@ public class SubscribeController {
 
 
     @PostMapping(value = {"/subscriptions"})
-    public Result subscriptions(@RequestParam int novelid, @RequestParam String email, HttpServletRequest request, HttpServletResponse response) {
+    public Result addSubscriptions(@RequestParam int novelid, @RequestParam String email, HttpServletRequest request, HttpServletResponse response) {
         return subscribeService.addSubcriber(novelid,email);
     }
 
@@ -70,4 +62,25 @@ public class SubscribeController {
         }
         return results;
     }
+
+    @DeleteMapping(value = "/subscriptions/{sbId}")
+    public Result deleteSubscriber(@PathVariable int sbId) {
+        subscribeService.removeById(sbId);
+        return Result.okWithMsg("删除成功！");
+
+    }
+
+
+    @PutMapping(value = "/subscriptions/{sbId}")
+    public Result reSubscriber(@PathVariable int sbId) {
+        Subscribe subscribe = Subscribe.builder().sbId(sbId).sbState(1).build();
+        log.info("打印 要更新的对象subscribe ---> {}",subscribe);
+        // 需要自己写 mapper 方法 和 sql 取消订阅
+        subscribeService.updateById(subscribe);
+//        subscribeService.update(subscribe, Wrappers.query(subscribe).eq("sb_id", sbId));
+        return Result.okWithMsg("订阅成功！");
+    }
+
+
+
 }
