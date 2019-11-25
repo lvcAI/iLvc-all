@@ -24,3 +24,6 @@ mybatis-plus:
 logging:
   level:
     me.ilvc.all.novel.mapper: debug
+solr:
+  server:
+    url: http://localhost:8984/solr/

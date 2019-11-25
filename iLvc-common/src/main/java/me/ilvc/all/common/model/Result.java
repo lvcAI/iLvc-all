@@ -30,6 +30,12 @@ public class Result<T> {
     public static <T> Result okWithData(T data) {
         return new Result<>(StatusCode.OK.getCode(), StatusCode.OK.getMsg(), data, null);
     }
+    public static Result error(){
+        return new Result(StatusCode.ERROR.getCode(), StatusCode.ERROR.getMsg(), null, null);
+    }
+    public static Result errorWithMsg(String msg){
+        return new Result(StatusCode.ERROR.getCode(), msg, null, null);
+    }
 
 
 }
