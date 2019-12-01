@@ -26,4 +26,8 @@ public class NovelChapterParam {
 
     private Integer novelId;
     private String chapterUpdateTime;
+    private Integer preChapterId;
+    private Integer nextChapterId;
+
+
 }

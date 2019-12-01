@@ -31,7 +31,7 @@ zuul:
     host:
       connections: 500
   host:
-    socket-timeout-millis: 60000
+    socket-timeout-millis: 150000
     connect-timeout-millis: 60000
 #如果Zuul使用服务发现，则需要使用
 #ribbon:

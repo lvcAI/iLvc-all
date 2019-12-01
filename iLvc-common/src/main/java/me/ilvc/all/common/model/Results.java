@@ -34,4 +34,8 @@ public class Results<T> {
         return new Results<>(StatusCode.OK.getCode(), StatusCode.OK.getMsg(), (List<T>) data, null);
     }
 
+    public static <T> Results okWithDataAndExtra(T data, Map extra){
+        return new Results<>(StatusCode.OK.getCode(), StatusCode.OK.getMsg(), (List<T>) data, extra);
+    }
+
 }

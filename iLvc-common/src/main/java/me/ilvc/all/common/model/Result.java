@@ -37,5 +37,8 @@ public class Result<T> {
         return new Result(StatusCode.ERROR.getCode(), msg, null, null);
     }
 
+    public static <T> Result okWithDataAndExtra(T data, Map extra){
+        return new Result<>(StatusCode.OK.getCode(), StatusCode.OK.getMsg(), data, extra);
+    }
 
 }
