@@ -27,6 +27,7 @@ import java.util.List;
 @Slf4j
 @RestController
 //@RequestMapping("/iLvc-novel")
+@CrossOrigin(origins = "*")
 public class SubscribeController {
 
 
