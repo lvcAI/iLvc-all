@@ -28,5 +28,15 @@
             <artifactId>spring-cloud-config-client</artifactId>
         </dependency>
     </dependencies>
-
+    <!-- Package as an executable jar -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <!-- 需配置版本，否则 idea 报红 找不到依赖     -->
+                <version>2.2.0.RELEASE</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>

@@ -18,6 +18,7 @@
             <groupId>me.ilvc.all</groupId>
             <artifactId>iLvc-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -63,4 +64,16 @@
 
 
     </dependencies>
+
+    <!-- Package as an executable jar -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <!-- 需配置版本，否则 idea 报红 找不到依赖     -->
+                <version>2.2.0.RELEASE</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>

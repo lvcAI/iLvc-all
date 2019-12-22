@@ -6,11 +6,14 @@
         <artifactId>all</artifactId>
         <groupId>me.ilvc</groupId>
         <version>0.0.1-SNAPSHOT</version>
+
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.ilvc.all</groupId>
     <artifactId>iLvc-common</artifactId>
+    <packaging>jar</packaging>
+
 
 <dependencies>
     <dependency>
@@ -34,4 +37,5 @@
         <artifactId>lombok</artifactId>
     </dependency>
 </dependencies>
+
 </project>
